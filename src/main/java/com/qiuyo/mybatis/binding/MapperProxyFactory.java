@@ -1,5 +1,8 @@
 package com.qiuyo.mybatis.binding;
 
+import java.lang.reflect.Proxy;
+import java.util.Map;
+
 /**
  * @Author: qiuyi
  * @Description: 映射器代理工厂
@@ -12,7 +15,8 @@ public class MapperProxyFactory<T> {
         this.mapperInterface = mapperInterface;
     }
 
-    public T newInstance() {
-        return null;
+    public T newInstance(Map<String, String> sqlSession) {
+        MapperProxy<T> mapperProxy = new MapperProxy<T>(sqlSession, mapperInterface);
+        return (T)Proxy.newProxyInstance(mapperInterface.getClassLoader(), new Class[]{mapperInterface}, mapperProxy);
     }
 }
