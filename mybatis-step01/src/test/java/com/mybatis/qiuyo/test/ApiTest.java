@@ -1,8 +1,8 @@
-package com.qiuyo.mybatis.test;
+package com.mybatis.qiuyo.test;
 
 import com.alibaba.fastjson2.JSON;
 import com.qiuyo.mybatis.binding.MapperProxyFactory;
-import com.qiuyo.mybatis.test.dao.IUserDao;
+import com.mybatis.qiuyo.test.dao.IUserDao;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

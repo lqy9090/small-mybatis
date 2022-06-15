@@ -1,4 +1,4 @@
-package com.qiuyo.mybatis.test.dao;
+package com.mybatis.qiuyo.test.dao;
 
 public interface IUserDao {
     String queryUserName(String uId);

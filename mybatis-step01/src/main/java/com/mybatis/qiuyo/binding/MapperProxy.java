@@ -1,4 +1,4 @@
-package com.qiuyo.mybatis.binding;
+package com.mybatis.qiuyo.binding;
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationHandler;
