@@ -13,10 +13,10 @@ import java.util.Map;
 public class MapperProxy<T> implements InvocationHandler, Serializable {
     private static final Long serialVersionUId = -6424540398559729838L;
 
-    private Map<String, String> sqlSession;
+    private SqlSession sqlSession;
     private final Class<T> mapperInterface;
 
-    public MapperProxy(Map<String, String> sqlSession, Class<T> mapperInterface) {
+    public MapperProxy(SqlSession sqlSession, Class<T> mapperInterface) {
         this.sqlSession = sqlSession;
         this.mapperInterface = mapperInterface;
     }
@@ -26,7 +26,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
         if (Object.class.equals(method.getDeclaringClass())) {
             return method.invoke(this, args);
         }else {
-            return "你被代理了" + sqlSession.get(mapperInterface.getName()) + "." + method.getName();
+            return "你被代理了" + "";//sqlSession.getMapper(mapperInterface.getName()) + "." + method.getName();
         }
     }
 }
