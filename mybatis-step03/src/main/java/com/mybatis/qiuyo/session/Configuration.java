@@ -1,6 +1,7 @@
 package com.mybatis.qiuyo.session;
 
 import com.mybatis.qiuyo.binding.MapperRegistry;
+import com.mybatis.qiuyo.mapping.MappedStatement;
 
 /**
  * @Author: qiuyi
@@ -13,4 +14,9 @@ public class Configuration {
     public <T> void addMapper(Class<T> type) {
         mapperRegistry.addMapper(type);
     }
+
+    public void addMappedStatement(MappedStatement ms){
+
+    }
+
 }

@@ -10,6 +10,7 @@ import org.xml.sax.InputSource;
 
 
 import java.io.Reader;
+import java.util.List;
 
 /**
  * @Author: qiuyi
@@ -18,6 +19,7 @@ import java.io.Reader;
  **/
 public class XMLConfigBuilder extends BaseBuilder {
     private Element root;
+    private Configuration configuration;
 
     public XMLConfigBuilder(Reader reader) {
         super(new Configuration());
@@ -28,6 +30,23 @@ public class XMLConfigBuilder extends BaseBuilder {
             root = document.getRootElement();
         } catch (DocumentException e) {
             e.printStackTrace();
+        }
+    }
+
+    public Configuration parse() {
+        try {
+            mapperElement(root.element("mappers"));
+        } catch (Exception e) {
+            throw new RuntimeException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
+        }
+        return configuration;
+    }
+
+    private void mapperElement(Element mappers){
+        List<Element> mapperList = mappers.elements("mapper");
+        for (Element e : mapperList) {
+            String resource = e.attributeValue("resource");
+
         }
     }
 }
