@@ -9,9 +9,13 @@ import com.mybatis.qiuyo.session.Configuration;
  * @DateTime: 2022/6/21 13:42
  **/
 public class BaseBuilder {
-    private Configuration configuration;
+    protected Configuration configuration;
 
     public BaseBuilder(Configuration configuration) {
         this.configuration = configuration;
+    }
+
+    public Configuration getConfiguration() {
+        return configuration;
     }
 }

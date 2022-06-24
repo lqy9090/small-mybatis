@@ -19,7 +19,6 @@ import java.util.List;
  **/
 public class XMLConfigBuilder extends BaseBuilder {
     private Element root;
-    private Configuration configuration;
 
     public XMLConfigBuilder(Reader reader) {
         super(new Configuration());
